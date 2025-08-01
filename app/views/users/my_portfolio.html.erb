@@ -1,4 +1,4 @@
-<h1>Users#my_portfolio</h1>
+<h1>My Portfolio</h1>
 <div class="search-area">
   <h3>Search Stocks</h3>
   <%= form_tag search_stock_path, method: :get, remote: true do %>
@@ -13,11 +13,7 @@
       </div>
     </div>
   <% end %>
-  <% if @stock %>
-    <div class="card card-header results-block">
-      <strong>Symbol: </strong> <%= @stock.ticker %>
-      <strong>Name: </strong> <%= @stock.name %>
-      <strong>Price: </strong> <%= @stock.last_price %>
-    </div>
-  <% end %>
+</div>
+<div id="results">
+  <%= render 'users/result' %>
 </div>
