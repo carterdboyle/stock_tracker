@@ -5,6 +5,6 @@ class Stock < ApplicationRecord
     end
 
     finnhub_client = FinnhubRuby::DefaultApi.new
-    finnhub_client.quote(ticker_symbol)["c"]
+    new(ticker: ticker_symbol, name: finnhub_client.symbol_search(ticker_symbol)["result"][0]["description"], last_price: finnhub_client.quote(ticker_symbol)["c"])
   end
 end

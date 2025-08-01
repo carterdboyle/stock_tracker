@@ -21,6 +21,7 @@ gem "devise", "~> 4.9"
 gem "devise-bootstrap-views", "~> 1.0"
 
 gem "bootstrap", "~> 5.3.3"
+gem "font-awesome-sass", "~> 6.7"
 
 gem "dartsass-rails", "~> 0.5.1"
 gem "autoprefixer-rails"

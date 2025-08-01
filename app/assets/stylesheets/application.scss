@@ -1,5 +1,12 @@
 // Sassy
 @import "bootstrap";
 
+// overwrite font path
+@function font-path($file) {
+  @return $file;
+}
+
+@import "font-awesome";
+
 // Custom code here
 @import "custom";
