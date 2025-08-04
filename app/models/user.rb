@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def full_name
-    return "#{first_name} #{last_name}" if first_name || last_name
-    return "Anonymous"
+    return "Anonymous" if first_name.strip.empty? || last_name.strip.empty?
+    return "#{first_name} #{last_name}"
   end
 end

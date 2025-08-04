@@ -1,0 +1,20 @@
+<%# locals: level:, message: nil, list: nil, title: nil, html_id: nil, turbo_cache: true %>
+<div
+  class="alert alert-<%= level %> alert-dismissible fade show"
+  role="alert"
+  <%= %(id="#{local_assigns[:html_id]}").html_safe if local_assigns[:html_id].present? %>
+  <%= 'data-turbo-cache="false"'.html_safe if local_assigns.key?(:turbo_cache) && local_assigns[:turbo_cache] == false %>>
+  <% if local_assigns[:title].present? %>
+    <h4 class="alert-heading"><%= title %></h4>
+  <% end %>
+
+  <% if local_assigns[:list].present? %>
+    <ul class="mb-0">
+      <% list.each do |item| %><li><%= item %></li><% end %>
+    </ul>
+  <% else %>
+    <%= message %>
+  <% end %>
+
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>

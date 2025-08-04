@@ -1,0 +1,9 @@
+<%# expects: resource %>
+<% if resource && resource.errors.any? %>
+  <%= render "devise/shared/alert",
+      level: "danger",
+      title: "#{pluralize(resource.errors.count, 'error')} prohibited this #{resource.class.model_name.human.downcase} from being saved:",
+      list: resource.errors.full_messages,
+      html_id: "error_explanation",
+      turbo_cache: false %>
+<% end %>
