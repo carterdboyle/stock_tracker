@@ -1,0 +1,9 @@
+<% if @friend %>
+  <div class="card card-header results-block mb-3">
+    <strong>Email: </strong> <%= @friend %>
+    <strong>First name: </strong> <%= @friend %>
+    <strong>Last name: </strong> <%= @friend %>
+
+    <%= link_to 'Follow', '#', class: "btn btn-success", data: { turbo_method: :post } %>
+  </div>
+<% end %>

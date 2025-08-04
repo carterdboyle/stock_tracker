@@ -1,4 +1,22 @@
 <h1 class="fw-semibold">My Friends</h1>
+<div class="search-area">
+  <h3>Search Friends</h3>
+  <%= form_tag search_friend_path, method: :get, remote: true do %>
+    <div class="row mb-3">
+      <div class="col-sm-9 no-right-padding">
+        <%= text_field_tag :friend, params[:friend], placeholder: "Friend name", autofocus: true, class: "form-control form-control-lg" %>
+      </div>
+      <div class="col-3 no-left-padding">
+        <%= button_tag type: :submit, class: "btn btn-success" do %>
+          <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div id="results">
+  <%= render 'users/friend_result' %>
+</div>
 <% if !@friends.empty? %>
   <%= render 'friends/list' %>
 <% end %>
