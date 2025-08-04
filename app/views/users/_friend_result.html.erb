@@ -1,9 +1,23 @@
-<% if @friend %>
+<div class="row">
+  <div class="col-9">
+    <%= render 'layouts/messages' %>
+  </div>
+</div>
+<% if @friends %>
   <div class="card card-header results-block mb-3">
-    <strong>Email: </strong> <%= @friend %>
-    <strong>First name: </strong> <%= @friend %>
-    <strong>Last name: </strong> <%= @friend %>
-
-    <%= link_to 'Follow', '#', class: "btn btn-success", data: { turbo_method: :post } %>
+    <table class="col-md-12">
+      <tbody>
+        <% @friends.each do | friend |%>
+        <tr>
+          <td><strong>Name: </strong> <%= friend.full_name %></td>
+          <td><strong>Email: </strong> <%= friend.email %></td>
+          <td><strong>Actions: </strong> <%= link_to "View Profile", "#", 
+                                  class: "btn btn-sm btn-success" %>
+          <%= link_to 'Follow', '#', class: "btn btn-success btn-sm", 
+                                  data: { turbo_method: :post } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 <% end %>
