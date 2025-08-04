@@ -15,10 +15,10 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Profile
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
+            <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -28,9 +28,13 @@
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      <ul class='navbar-nav ms-auto'>
+      <ul class='navbar-nav ms-auto align-items-center'>
+        <li class="nav-item user-name me-1">
+          <i class="fa-solid fa-user"></i>
+          <%= current_user.full_name %>
+        </li>
         <li class="nav-item">
-          <%= link_to "Logout", destroy_user_session_path, class: "btn btn-danger me-2", data: { turbo_method: :delete } %>
+          <%= link_to "Logout", destroy_user_session_path, class: "btn btn-danger me-1", data: { turbo_method: :delete } %>
         </li>
       </ul>
       <form class="d-flex" role="search">
