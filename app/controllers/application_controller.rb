@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [ :first_name, :last_name ])
   end
 
+  def set_user
+    @user = current_user
+  end
+
 end

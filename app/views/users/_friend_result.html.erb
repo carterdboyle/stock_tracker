@@ -8,18 +8,18 @@
     <table class="col-md-12">
       <tbody>
         <% @friends.each do | friend |%>
-        <tr>
-          <td class="pe-1"><strong>Name: </strong> <%= friend.full_name %></td>
-          <td class="pe-1"><strong>Email: </strong> <%= friend.email %></td>
-          <td class="pe-1"><strong class="align-middle">Actions: </strong> <%= link_to "View Profile", "#", 
-                                  class: "btn btn-sm btn-success align-middle" %>
-          <% if current_user.not_friends_with?(friend.id) %>
-            <%= link_to 'Follow', friendships_path(friend: friend), class: "btn btn-success btn-sm", 
-                                  data: { turbo_method: :post } %></td>
-          <% else %>
-            <span class="badge text-bg-secondary align-middle">You are already friends</span>
-          <% end %>
-        </tr>
+          <tr>
+            <td class="pe-1"><strong>Name: </strong> <%= friend.full_name %></td>
+            <td class="pe-1"><strong>Email: </strong> <%= friend.email %></td>
+            <td class="pe-1"><strong class="align-middle">Actions: </strong> <%= link_to "View Profile", user_path(friend), 
+                                    class: "btn btn-sm btn-success align-middle" %>
+            <% if current_user.not_friends_with?(friend.id) %>
+              <%= link_to 'Follow', friendships_path(friend: friend), class: "btn btn-success btn-sm", 
+                                    data: { turbo_method: :post } %></td>
+            <% else %>
+              <span class="badge text-bg-secondary align-middle">You are already friends</span>
+            <% end %>
+          </tr>
         <% end %>
       </tbody>
     </table>

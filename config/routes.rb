@@ -19,4 +19,5 @@ Rails.application.routes.draw do
 
   resources :user_stocks, only: [ :create, :destroy ]
   resources :friendships, only: [ :create, :destroy ]
+  resources :users, only: [ :show ]
 end

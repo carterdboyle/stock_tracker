@@ -1,0 +1,25 @@
+<h2>User Details</h2>
+
+<div class="card card-header results-block mb-3">
+  <table class="col-md-12">
+    <tbody>
+      <tr>
+        <td class="pe-1"><strong>Name: </strong> <%= @user.full_name %></td>
+        <td class="pe-1"><strong>Email: </strong> <%= @user.email %></td>
+        <td class="pe-1">
+        <% if current_user.not_friends_with?(@user.id) %>
+          <%= link_to 'Follow', friendships_path(friend: @user), class: "btn btn-success btn-sm", 
+                                data: { turbo_method: :post } %></td>
+        <% else %>
+          <span class="badge text-bg-secondary align-middle">You are already friends</span>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<% if !@tracked_stocks.empty? %>
+  <%= render 'stocks/list' %>
+<% else %>
+  <p class="lead">This user is not tracking any stocks</p>
+<% end %>
