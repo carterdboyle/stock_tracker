@@ -9,12 +9,16 @@
       <tbody>
         <% @friends.each do | friend |%>
         <tr>
-          <td><strong>Name: </strong> <%= friend.full_name %></td>
-          <td><strong>Email: </strong> <%= friend.email %></td>
-          <td><strong>Actions: </strong> <%= link_to "View Profile", "#", 
-                                  class: "btn btn-sm btn-success" %>
-          <%= link_to 'Follow', '#', class: "btn btn-success btn-sm", 
+          <td class="pe-1"><strong>Name: </strong> <%= friend.full_name %></td>
+          <td class="pe-1"><strong>Email: </strong> <%= friend.email %></td>
+          <td class="pe-1"><strong class="align-middle">Actions: </strong> <%= link_to "View Profile", "#", 
+                                  class: "btn btn-sm btn-success align-middle" %>
+          <% if current_user.not_friends_with?(friend.id) %>
+            <%= link_to 'Follow', '#', class: "btn btn-success btn-sm", 
                                   data: { turbo_method: :post } %></td>
+          <% else %>
+            <span class="badge text-bg-secondary">You are already friends</span>
+          <% end %>
         </tr>
         <% end %>
       </tbody>
