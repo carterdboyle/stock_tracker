@@ -79,6 +79,10 @@ Rails.application.configure do
   # Only use :id for inspections in production.
   config.active_record.attributes_for_inspect = [ :id ]
 
+  # Allow docker / kamal internal names
+  config.hosts << "stocks.carterdboyle.ca"
+  config.hosts << /[a-z0-9\-]+(:\d+)?\z/  # Allow anything like e4378ca5c6e3:80
+
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
   #   "example.com",     # Allow requests from example.com
