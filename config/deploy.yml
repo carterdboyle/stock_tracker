@@ -20,6 +20,7 @@ servers:
 proxy:
   ssl: true
   host: stocks.carterdboyle.ca
+  app_port: 3000
 
 # Credentials for your image host.
 registry:
